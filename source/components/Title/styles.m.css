@@ -1,0 +1,15 @@
+.main{
+    background-color: #ffa801;
+    display: flex;
+    flex-direction: row;
+    Justify-content: center;
+    margin: 20px;
+    & h1 {
+        font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+        font-size: 50pt;
+        color: #1d2a5b;
+        & span {
+            color: #FF0000;
+        }
+    }
+}
