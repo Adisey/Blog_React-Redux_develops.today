@@ -32,7 +32,7 @@ tags
 
 # == JetBrains ==
 
-# PostsList
+# Index
 .idea/
 
 # CMake
@@ -62,13 +62,13 @@ fabric.properties
 
 # == VSCode ==
 
-# PostsList
+# Index
 .vscode/*
 
 
 # == macOS ==
 
-# PostsList
+# Index
 .DS_Store
 .AppleDouble
 .LSOverride
