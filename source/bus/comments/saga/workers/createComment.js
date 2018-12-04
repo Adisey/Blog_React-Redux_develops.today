@@ -6,20 +6,21 @@ import { commentsActions } from '../../actions';
 import { uiActions } from '../../../ui/actions';
 
 export function* createComment ({ payload: comment }) {
+    console.log(`createComment worker -> "comment" -> `, comment);
     try {
-        yield put(uiActions.startFetching());
+        yield put(uiActions.startSpinning());
 
-        const response = yield apply(api, api.posts.create, [comment]);
-        const { data: post, message } = yield apply(response, response.json);
+        const response = yield apply(api, api.comments.create, [comment]);
+        const newComment = yield apply(response, response.json);
+        console.log(`createComment worker -> "newComment" -> `, newComment);
 
-        if (response.status !== 200) {
-            throw new Error(message);
+        if (response.status !== 201) {
+            throw new Error('Error createComment Worker');
         }
-        yield put(postsActions.createPost(post));
+        yield put(commentsActions.createComment(newComment));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'createPost fetchUsers'));
+        yield put(uiActions.emitError(error, 'createComment Worker'));
     } finally {
-        yield put(uiActions.stopFetching());
-
+        yield put(uiActions.stopSpinning());
     }
 }

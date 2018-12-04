@@ -7,9 +7,53 @@
     border: 1px solid #afafaf;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
-    & a {
-        text-decoration: none;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+
+    & .inputPlace {
+        display: flex;
+        flex-direction: column;
+
+        & .submitButtonPlace {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+        }
+        & .errorMessage {
+            height: 15px;
+            color: #FF0000;
+            font-size: 8pt;
+        }
+    }
+
+    & .signupSubmit {
+        width: 150px;
+        border: 1px solid;
+        color: #FFFFFF;
+        border-color: #0000FF;
+        background-color: #2e64cb;
+        transition: box-shadow 0.5s ease;
+        box-shadow: 0 3px 3px -1px transparent;
+        border-radius: 3px;
+        &:hover {
+            box-shadow: 0 3px 3px -1px #5e7fa7;
+        }
+    }
+
+    & Input {
+        border: 1px solid #0000ff;
+        border-radius: 3px;
+    }
+    & .invalidInput {
+        border: 1px solid red;
+
+        &:focus {
+            border: 1px solid crimson;
+            box-shadow: 0 5px 6px -6px #f40009;
+        }
+    }
+    & .disabledButton {
+        background-color: #FFFFFF;
+        color: #858585;
     }
 }
 
@@ -20,6 +64,7 @@
 
 .body {
     color: #343434;
+    margin-top: 10px;
 }
 
 .commentCount {

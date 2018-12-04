@@ -26,6 +26,7 @@ export const commentsActions ={
         };
     },
     createCommentAsync: (comment) => {
+        console.log(`Action createCommentAsync -> "comment" -> `, comment);
         return {
             type:    type.CREATE_COMMENT_ASYNC,
             payload: comment,

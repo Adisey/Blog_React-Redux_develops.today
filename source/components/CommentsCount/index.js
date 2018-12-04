@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => {
 @connect(
     mapStateToProps,
     mapDispatchToProps
-
 )
 export default class CommentsCount extends Component {
     static propTypes = {

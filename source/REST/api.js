@@ -29,11 +29,14 @@ export const api = {
             });
         },
         create (comment) {
+            console.log(`API -> "comment" -> `, comment);
+
             return fetch(`${ROOT_URL}/comments`, {
                 method:  'POST',
                 headers: {
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ comment }),
+                body: JSON.stringify(comment),
             });
         },
     },
