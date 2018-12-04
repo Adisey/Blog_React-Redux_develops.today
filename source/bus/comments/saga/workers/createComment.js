@@ -6,13 +6,11 @@ import { commentsActions } from '../../actions';
 import { uiActions } from '../../../ui/actions';
 
 export function* createComment ({ payload: comment }) {
-    console.log(`createComment worker -> "comment" -> `, comment);
     try {
         yield put(uiActions.startSpinning());
 
         const response = yield apply(api, api.comments.create, [comment]);
         const newComment = yield apply(response, response.json);
-        console.log(`createComment worker -> "newComment" -> `, newComment);
 
         if (response.status !== 201) {
             throw new Error('Error createComment Worker');

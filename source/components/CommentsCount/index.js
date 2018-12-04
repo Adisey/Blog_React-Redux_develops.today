@@ -44,11 +44,11 @@ export default class CommentsCount extends Component {
             postId,
             comments,
         } = this.props;
-        const сommentsCount = comments.filter((comment) => comment.get('postId')=== postId).size;
+        const commentsCount = comments.filter((comment) => comment.get('postId')=== postId).size;
 
         return (
             <section className = { Styles.main }>
-                <span>{сommentsCount}</span> <p>{сommentsCount<2 ? 'сomment' : 'сomments'}</p>
+                <span>{commentsCount}</span> <p>{commentsCount<2 ? 'сomment' : 'сomments'}</p>
             </section>
         );
     }

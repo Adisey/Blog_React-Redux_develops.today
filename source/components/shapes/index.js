@@ -7,7 +7,7 @@ const Required      = `The field must not be empty.`;
 
 export const shapeComment = {
     shape: {
-        body:    '',
+        body: '',
     },
     schema: object().shape({
         body: string()

@@ -36,7 +36,7 @@ export default class Posts extends Component {
 
     componentDidMount () {
         const { actions } = this.props;
-        // В идеале, есмли позволит API загружать только комментарии для отображоннвх постов по postId
+        // В идеале, если позволит API загружать только комментарии для отображоннвх постов по postId
 
         actions.fetchCommentsAsync();
     }
