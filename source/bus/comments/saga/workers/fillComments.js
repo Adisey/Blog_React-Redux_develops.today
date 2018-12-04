@@ -10,7 +10,15 @@ export function* fillComments () {
         yield put(uiActions.startSpinning());
 
         const response = yield apply(api, api.comments.fetch);
-        const  comments  = yield apply(response, response.json);
+        let comments  = yield apply(response, response.json);
+
+        comments = comments.map((c) => {
+            return {
+                id:     c.id.toString(),
+                postId: c.postId.toString(),
+                body:   c.body,
+            };
+        });
 
         if (response.status !== 200) {
             throw new Error(message);

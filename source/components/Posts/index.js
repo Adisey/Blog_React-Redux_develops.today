@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import { PostItem } from '../';
 // Actions
 import { postsActions } from '../../bus/posts/actions';
-import { commentsActions } from '../../bus/comments/actions';
 // Styles
 import Styles from './styles.m.css';
 
@@ -17,7 +16,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators({ ...postsActions, ...commentsActions }, dispatch),
+        actions: bindActionCreators({ ...postsActions }, dispatch),
     };
 };
 
@@ -30,8 +29,6 @@ export default class Posts extends Component {
         const { actions } = this.props;
         // В идеале, есмли позволит API сделать ленивую загрузку
         actions.fetchPostsAsync();
-        // В идеале, есмли позволит API загружать только комментарии для отображоннвх постов по postId
-        actions.fetchCommentsAsync();
     }
     render () {
         const { posts } = this.props;

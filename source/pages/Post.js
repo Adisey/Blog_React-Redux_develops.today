@@ -7,7 +7,8 @@ import Styles from './styles.m.css';
 
 export default class Post extends Component {
     render () {
-        const postId = Number(this.props.location.pathname.split(':')[1]);
+        let postId = this.props.location.pathname.split(':')[1];
+        postId = postId ? postId.toString() : postId;
 
         return (
             <div className = { Styles.main }>

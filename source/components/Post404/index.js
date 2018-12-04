@@ -1,17 +1,18 @@
 // Core
 import React, { Component } from 'react';
-import { number } from "prop-types";
+import { string } from "prop-types";
 // Instruments
 import Styles from './styles.m.css';
 // Components
-export default class Page404 extends Component {
+export default class Post404 extends Component {
     static propTypes = {
-        postId: number.isRequired,
+        postId: string.isRequired,
     };
 
     static defaultProps = {
-        postId: -7,
+        postId: undefined,
     };
+
     render () {
         const {
             postId,
@@ -20,7 +21,7 @@ export default class Page404 extends Component {
         return (
             <section className = { Styles.main }>
                 <div>
-                    <p>Post id <span>{postId}</span> not found</p>
+                    <p>Post {postId ? <span>{postId}</span> : null}  not found</p>
                 </div>
             </section>
         );

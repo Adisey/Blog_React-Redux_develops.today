@@ -1,17 +1,23 @@
-import Title from './Title';
-import Spinner from './Spinner';
-import Posts from './Posts';
-import PostItem from './PostItem';
-import PostView from './PostView';
+import CommentItem from './CommentItem';
+import Comments from './Comments';
 import CommentsCount from './CommentsCount';
-import Page404 from './Page404';
+import NewComment from './NewComment';
+import Post404 from './Post404';
+import PostItem from './PostItem';
+import Posts from './Posts';
+import PostView from './PostView';
+import Spinner from './Spinner';
+import Title from './Title';
 
 export {
-    Title,
-    Spinner,
-    Posts,
-    PostItem,
-    PostView,
+    CommentItem,
+    Comments,
     CommentsCount,
-    Page404,
+    NewComment,
+    Post404,
+    PostItem,
+    Posts,
+    PostView,
+    Spinner,
+    Title,
 };

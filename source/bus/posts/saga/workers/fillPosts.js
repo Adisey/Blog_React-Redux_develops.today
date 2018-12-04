@@ -10,8 +10,15 @@ export function* fillPosts () {
         yield put(uiActions.startSpinning());
 
         const response = yield apply(api, api.posts.fetch);
-        const  posts  = yield apply(response, response.json);
-        console.log(`posts->`, posts);
+        let posts  = yield apply(response, response.json);
+
+        posts = posts.map((p) => {
+            return {
+                id:    p.id.toString(),
+                title: p.title,
+                body:  p.body,
+            };
+        });
 
         if (response.status !== 200) {
             throw new Error(message);
