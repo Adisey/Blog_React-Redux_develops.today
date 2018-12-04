@@ -1,0 +1,8 @@
+export const type = {
+    // Syn
+    FILL_COMMENTS:        'FILL_COMMENTS',
+    CREATE_COMMENT:       'CREATE_COMMENT',
+    // Asyn
+    FETCH_COMMENTS_ASYNC: 'FETCH_COMMENTS_ASYNC',
+    CREATE_COMMENT_ASYNC: 'CREATE_COMMENT_ASYNC',
+};

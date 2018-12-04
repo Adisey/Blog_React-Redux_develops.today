@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    & span {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    & p {
+        font-style: italic;
+    }
+}
+

@@ -3,20 +3,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // Components
-import { Post } from '../';
+import { PostItem } from '../';
 // Actions
 import { postsActions } from '../../bus/posts/actions';
+import { commentsActions } from '../../bus/comments/actions';
 // Styles
 import Styles from './styles.m.css';
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts,
+        posts:    state.posts,
     };
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions: bindActionCreators({ ...postsActions }, dispatch),
+        actions: bindActionCreators({ ...postsActions, ...commentsActions }, dispatch),
     };
 };
 
@@ -27,18 +28,18 @@ const mapDispatchToProps = (dispatch) => {
 export default class Posts extends Component {
     componentDidMount () {
         const { actions } = this.props;
-
+        // В идеале, есмли позволит API сделать ленивую загрузку
         actions.fetchPostsAsync();
+        // В идеале, есмли позволит API загружать только комментарии для отображоннвх постов по postId
+        actions.fetchCommentsAsync();
     }
     render () {
         const { posts } = this.props;
 
-        console.log(` -> "posts" -> `, posts);
-
         const postsJSX = posts.map((post) => {
             return (
                 <div key = { post.get('id') }>
-                    <Post
+                    <PostItem
                         body = { post.get('body') }
                         id = { post.get('id') }
                         title = { post.get('title') }

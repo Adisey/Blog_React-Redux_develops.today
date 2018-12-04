@@ -20,4 +20,21 @@ export const api = {
             });
         },
     },
+    comments: {
+        fetch () {
+            return fetch(`${ROOT_URL}/comments`, {
+                method:  'GET',
+                headers: {
+                },
+            });
+        },
+        create (comment) {
+            return fetch(`${ROOT_URL}/comments`, {
+                method:  'POST',
+                headers: {
+                },
+                body: JSON.stringify({ comment }),
+            });
+        },
+    },
 };

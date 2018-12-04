@@ -2,23 +2,22 @@
 import { put, apply } from 'redux-saga/effects';
 
 import { api } from "../../../../REST";
-import { postsActions } from '../../actions';
+import { commentsActions } from '../../actions';
 import { uiActions } from '../../../ui/actions';
 
-export function* fillPosts () {
+export function* fillComments () {
     try {
         yield put(uiActions.startSpinning());
 
-        const response = yield apply(api, api.posts.fetch);
-        const  posts  = yield apply(response, response.json);
-        console.log(`posts->`, posts);
+        const response = yield apply(api, api.comments.fetch);
+        const  comments  = yield apply(response, response.json);
 
         if (response.status !== 200) {
             throw new Error(message);
         }
-        yield put(postsActions.fillPosts(posts));
+        yield put(commentsActions.fillComments(comments));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'fillPosts worker'));
+        yield put(uiActions.emitError(error, 'fillComments worker'));
     } finally {
         yield put(uiActions.stopSpinning());
 
